@@ -10,6 +10,9 @@ var usersRouter = require('./routes/users');
 //session
 const session = require('express-session');
 
+//boards.js
+var boardsRouter = require('./routes/boards');
+
 var app = express();
 
 // view engine setup
@@ -24,6 +27,9 @@ var session_opt = {
   cookie: { maxAge: 60 * 60 * 1000 }
 };
 app.use(session(session_opt));
+
+//boards.js
+app.use('/boards', boardsRouter);
 
 app.use(logger('dev'));
 app.use(express.json());
